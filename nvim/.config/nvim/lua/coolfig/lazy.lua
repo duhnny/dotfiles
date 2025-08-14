@@ -49,20 +49,17 @@ return require('lazy').setup({
   { 'tpope/vim-fugitive' },
 
   -- lsp pluggins from lsp-zero
+  { 'mason-org/mason.nvim', opts = {} },
   { 'neovim/nvim-lspconfig' },
   { 'hrsh7th/nvim-cmp' },
   { 'hrsh7th/cmp-nvim-lsp' },
-  { 'VonHeikemen/lsp-zero.nvim' },
-  { 'williamboman/mason.nvim' },
-  { 'williamboman/mason-lspconfig.nvim' },
 
   -- for closing braces
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-      config = function()
-        require("nvim-autopairs").setup {}
-      end
+    config = true,
+    opts = {},
   },
 
   -- flutter dev tools
@@ -82,4 +79,15 @@ return require('lazy').setup({
       end,
     },
   },
+
+  -- latex
+  {
+    "lervag/vimtex",
+    lazy = false,     -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = "zathura"
+    end
+  }
 })

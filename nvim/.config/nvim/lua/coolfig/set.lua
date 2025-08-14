@@ -1,7 +1,9 @@
 -- general keymaps
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<C-f>", vim.cmd.Ex)
+
+vim.keymap.set("n", "U", vim.cmd.redo)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -48,6 +50,6 @@ vim.opt.wrap = false -- disable line wrapping
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("kanagawa") -- catppuccin colorscheme
 
--- path
-vim.g.netrw_cygwin = 0
-vim.g.netrw_scp_cmd = '"C:\\Windows\\System32\\OpenSSH\\scp.exe" -q'
+-- path (for Windows)
+-- vim.g.netrw_cygwin = 0
+-- vim.g.netrw_scp_cmd = '"C:\\Windows\\System32\\OpenSSH\\scp.exe" -q'

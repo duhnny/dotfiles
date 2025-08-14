@@ -1,4 +1,4 @@
-require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
+require 'nvim-treesitter.install'.compilers = { "gcc", "zig" }
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "c",
