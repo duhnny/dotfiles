@@ -1,7 +1,11 @@
 # aesthetics
 background = 070612
 background-opacity = 0.7
-font-family = "JetBrains Mono"
+font-family = "JetBrains Mono Nerd Font"
+custom-shader = ./shaders/cursor_smear.glsl
 
 # shell config
 shell-integration = zsh
+
+# on launch
+window-inherit-working-directory = true
