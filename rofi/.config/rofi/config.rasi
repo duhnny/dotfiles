@@ -1,0 +1,6 @@
+configuration {
+    modi: "window,drun,ssh,combi,run";
+    combi-modi: "window,drun,ssh";
+}
+
+@theme "/home/daniel/.local/share/rofi/themes/rounded-gray-dark.rasi"

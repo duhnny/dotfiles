@@ -16,6 +16,7 @@ window#waybar {
 #tray,
 #clock,
 #custom-spotify {
+    background-color: rgba(50, 50, 50, 0.2);
     margin: 0px 2.5px;
     border-radius: 12.5px;
     padding: 0 7.5px 0 7.5px;
@@ -75,21 +76,13 @@ window#waybar {
 }
 
 #custom-launcher {
-    background-color: #121212;
+    background-color: rgba(50, 50, 50, 0.2);
+    border-width: 1px 1px 1px 1px;
+    border-color: #fff;
     border-radius: 100px;
-    color: #e64c4c;
+    color: #fff;
     margin: 0 10px;
     padding: 0 20px 0 20px;
-}
-
-#clock {
-  font-weight: 600;
-  background-color: #e8eaed;
-  color: #121212;
-  padding: 1px 8px;
-  margin: 4px 0 4px 0;
-  border-radius: 3px;
-  font-weight: bold;
 }
 
 #custom-media {

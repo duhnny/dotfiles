@@ -1,10 +1,11 @@
 {
+    "output": "eDP-1",
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
 
     "modules-left": ["custom/launcher", "hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    // "modules-center": ["hyprland/window"],
     "modules-right": ["custom/spotify", "pulseaudio", "network", "battery", "tray", "clock"],
 
     
@@ -26,11 +27,16 @@
             "class<.*zen.*> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
             "class<zen> title<.*WhatsApp.*>": "",
             "ghostty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+            "kitty": "",
             "class<.*nvim.*>": "",
             "class<.*[dD]ocker.*>": "",
             "class<.*bitwarden.*>": "",
             "class<Spotify>": "",
             "class<org.gnome.Nautilus>": "",
+            "class<org.gnome.SystemMonitor>": "",
+            "class<resolve>": "",
+            "class<freeshow>": "󰐩",
+            "class<Cursor>": "󰆦",
 	    },
     },
 
@@ -39,12 +45,14 @@
         "rewrite": {
             "com.mitchellh.ghostty nvim.*": "  Neovim",
             "com.mitchellh.ghostty (?!nvim).*": "󰊠  Ghostty",
+            "kitty.*": "󰄛  Kitty",
             "zen (?!.*WhatsApp)(.*) — Zen Browser": "󰺕  $1",
             "zen .*WhatsApp.*": "  WhatsApp",
             ".*[dD]ocker.*": "  Docker",
             ".*[bB]itwarden.*": "  Bitwarden",
             "Spotify (.*)": "  $1",
             "org.gnome.Nautilus (.*)": "  $1",
+            "freeshow Freeshow": "󰐩  FreeShow",
         },
         "max-length": 80,
     },
@@ -79,13 +87,13 @@
         "format-wifi": "{essid} ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "zsh -c \"nmtui\" && disown",
+        "on-click": "ghostty -e nmtui",
     },
     "pulseaudio": {
         //"scroll-step": 1,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": "",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
@@ -95,7 +103,12 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pactl set-sink-mute $(pactl get-default-sink) toggle",
+		"menu": "on-click-right",
+		"menu-file": "~/.config/waybar/menus/sound_menu.xml",
+		"menu-actions": {
+            "output": "~/.config/hypr/scripts/select_audio_output.sh"
+		},
     },
     "custom/spotify": {
         "format": " {}",
@@ -103,6 +116,6 @@
         "interval": 5, // Remove this if your script is endless and write in loop
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
         "exec-if": "pgrep spotify",
-        "on-click": "playerctl play-pause",
+        "on-click": "playerctl -p spotify play-pause",
     }
 }

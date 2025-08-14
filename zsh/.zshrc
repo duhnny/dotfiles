@@ -7,13 +7,18 @@ unsetopt autocd beep nomatch notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-# path config
+# development
 DOCKER=~/.docker/bin
 FLUTTER=~/development/flutter/bin
 GO_PKG=~/go/bin
+UTILS=~/development/utils/bin
 ZIG=~/zig
 ZEN=~/zen
-PATH=$PATH:$DOCKER:$FLUTTER:$GO_PKG:$ZIG:$ZEN
+PATH=$PATH:$DOCKER:$FLUTTER:$GO_PKG:$UTILS:$ZIG:$ZEN
+
+export NVM_DIR="$HOME/development/javascript/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -39,3 +44,4 @@ alias dos2unix='sed -i "s/\r$//"'
 alias ls='lsd'
 alias grep='grep --color=auto'
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.yaml)"
+fastfetch
