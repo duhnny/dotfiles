@@ -37,6 +37,8 @@
             "class<resolve>": "",
             "class<freeshow>": "󰐩",
             "class<Cursor>": "󰆦",
+            "class<Podman Desktop>": "",
+            "class<Postman>": "󰙨",
 	    },
     },
 
