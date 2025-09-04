@@ -89,5 +89,77 @@ return require('lazy').setup({
       -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = "zathura"
     end
-  }
+  },
+
+  -- debugging
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      -- Creates a beautiful debugger UI
+      'rcarriga/nvim-dap-ui',
+
+      -- Required dependency for nvim-dap-ui
+      'nvim-neotest/nvim-nio',
+
+      -- optional
+      -- 'mason-org/mason.nvim',
+      -- 'jay-babu/mason-nvim-dap.nvim',
+
+      -- Language-specific debuggers
+      'leoluz/nvim-dap-go', -- Golang
+
+      -- Shows variable values inline as virtual text
+      'theHamsta/nvim-dap-virtual-text',
+    },
+    config = function()
+      local dap = require 'dap'
+      local dapui = require 'dapui'
+
+      -- optional
+      -- require('mason-nvim-dap').setup {
+      --     automatic_installation = true,
+      --     handlers = {},
+      --     ensure_installed = {
+      --         'delve',
+      --     },
+      -- }
+
+      -- Dap UI setup
+      dapui.setup {
+        icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+        controls = {
+          icons = {
+            pause = '⏸',
+            play = '▶',
+            step_into = '⏎',
+            step_over = '⏭',
+            step_out = '⏮',
+            step_back = 'b',
+            run_last = '▶▶',
+            terminate = '⏹',
+            disconnect = '⏏',
+          },
+        },
+      }
+
+      -- Automatically open/close DAP UI
+      dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+      dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+      dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+      -- Setup virtual text to show variable values inline
+      require("nvim-dap-virtual-text").setup()
+
+      require('dap-go').setup({
+        delve = {
+          -- Use Mason's delve installation with fallback to system delve
+          path = "dlv",
+
+          -- On Windows delve must be run attached or it crashes.
+          -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
+          -- detached = vim.fn.has 'win32' == 0,
+        }
+      })
+    end,
+  },
 })

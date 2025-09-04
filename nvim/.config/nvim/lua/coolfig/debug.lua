@@ -1,0 +1,8 @@
+vim.keymap.set('n', '<leader>dp', function() require('dap').continue() end)
+vim.keymap.set('n', '<leader>dsi', function() require('dap').step_into() end)
+vim.keymap.set('n', '<leader>dso', function() require('dap').step_out() end)
+vim.keymap.set('n', '<leader>dsO', function() require('dap').step_over() end)
+vim.keymap.set('n', '<leader>db', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<leader>dB', function() require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ') end)
+vim.keymap.set('n', '<leader>dt', function() require('dapui').toggle() end)
+vim.keymap.set('n', '<leader>dl', function() require('dap').run_last() end)
