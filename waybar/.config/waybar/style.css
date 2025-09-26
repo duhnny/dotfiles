@@ -71,11 +71,18 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    color: #121212;
+    all: unset;
+    transition: all 0.2s ease-in-out;
+    border-radius: 100px;
     padding: 0px 9px 0 9px;
+    margin: 0 2.5px 0 2.5px;
+
+    background-color: #e8eaed;
+    color: #121212;
 }
 
 #custom-launcher {
+    transition: all 0.2s ease-in-out;
     background-color: rgba(50, 50, 50, 0.2);
     border-width: 1px 1px 1px 1px;
     border-color: #fff;
@@ -83,6 +90,11 @@ window#waybar {
     color: #fff;
     margin: 0 10px;
     padding: 0 20px 0 20px;
+}
+
+#custom-launcher:hover {
+    background-color: #fff;
+    color: #121212;
 }
 
 #custom-media {
