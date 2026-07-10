@@ -60,9 +60,10 @@ float ease(float x) {
     return pow(1.0 - x, 3.0);
 }
 
-const vec4 TRAIL_COLOR = vec4(1., 1., 1., 0.9);
-const float OPACITY = 0.6;
-const float DURATION = 0.1; //IN SECONDS
+const float OPACITY = 0.01;
+const vec4 TRAIL_COLOR = vec4(0.914, 0.914, 0.914, OPACITY);
+const float DURATION = 0.03; //IN SECONDS
+const float LENGTH_FACTOR = 0.2;
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
@@ -98,7 +99,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     // Distance between cursors determine the total length of the parallelogram;
     vec2 centerCC = getRectangleCenter(currentCursor);
     vec2 centerCP = getRectangleCenter(previousCursor);
-    float lineLength = distance(centerCC, centerCP);
+    float lineLength = distance(centerCC, centerCP) * LENGTH_FACTOR;
 
     vec4 newColor = vec4(fragColor);
     // Draw trail

@@ -11,10 +11,11 @@ bindkey -v
 DOCKER=~/.docker/bin
 FLUTTER=~/development/flutter/bin
 GO_PKG=~/go/bin
+PERL=/usr/bin/vendor_perl
 UTILS=~/development/utils/bin
 ZIG=~/zig
 ZEN=~/zen
-PATH=$PATH:$DOCKER:$FLUTTER:$GO_PKG:$UTILS:$ZIG:$ZEN
+PATH=$PATH:$DOCKER:$FLUTTER:$GO_PKG:$PERL:$UTILS:$ZIG:$ZEN
 
 export NVM_DIR="$HOME/development/javascript/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

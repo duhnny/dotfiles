@@ -53,6 +53,7 @@ vim.lsp.config('shellcheck', {});
 
 -- enable lsps
 vim.lsp.enable({
+    "texlab",
     "gopls",
     "dart-debug-adapter",
     "pylsp",

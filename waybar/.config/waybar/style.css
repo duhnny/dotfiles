@@ -1,6 +1,6 @@
 * {
   font-size: 13.5px;
-  font-family: 'DM Sans', 'JetBrainsMono Nerd Font Propo', sans-serif;
+  font-family: 'DM Sans', 'JetBrainsMono Nerd Font Propo', 'Noto Sans CJK JP', sans-serif;
   font-weight: 600;
   padding: 0;
 }
@@ -93,7 +93,7 @@ window#waybar {
 }
 
 #custom-launcher:hover {
-    background-color: #fff;
+    background-color: #e8eaed;
     color: #121212;
 }
 

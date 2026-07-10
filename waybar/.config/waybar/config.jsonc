@@ -40,6 +40,12 @@
             "class<Podman Desktop>": "",
             "class<Postman>": "󰙨",
             "class<Google-chrome>": "",
+            "class<obsidian>": "",
+            "class<gimp>": "",
+            "class<com.obsproject.Studio>": "󰡂",
+            "class<.*code-oss.*>": "",
+            "class<org.pwmt.zathura>": "",
+            "class<beekeeper-studio>": "",
 	    },
     },
 

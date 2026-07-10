@@ -88,8 +88,22 @@ return require('lazy').setup({
     init = function()
       -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = "zathura"
-    end
-  },
+      vim.g.Tex_BibtexFlavor = 'biblatex'
+      vim.g.Tex_MultipleCompileFormats = 'pdf,bib,pdf'
+      vim.g.vimtex_compiler_latexmk = {
+        options = {
+          "-pdf",
+          "-verbose",
+          "-file-line-error",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+        },
+      }
+      vim.g.vimtex_compiler_latexmk_engines = {
+        ["_"] = "-pdflatex",
+      }
+      end
+    },
 
   -- debugging
   {
@@ -107,6 +121,13 @@ return require('lazy').setup({
 
       -- Language-specific debuggers
       'leoluz/nvim-dap-go', -- Golang
+      'mxsdev/nvim-dap-vscode-js', -- js
+
+      {
+        'mrcjkb/rustaceanvim',
+        version = '^6', -- Recommended
+        lazy = false, -- This plugin is already lazy
+      },
 
       -- Shows variable values inline as virtual text
       'theHamsta/nvim-dap-virtual-text',
@@ -160,6 +181,50 @@ return require('lazy').setup({
           -- detached = vim.fn.has 'win32' == 0,
         }
       })
+      require('dap-vscode-js').setup({
+        debugger_path = os.getenv('HOME') .. '/development/javascript/vscode-js-debug',
+        adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+      })
+      
+      for _, language in ipairs({ 'typescript', 'javascript' }) do
+        dap.configurations[language] = {
+          {
+            type = "pwa-node",
+            request = "launch",
+            name = "Launch file",
+            program = "${file}",
+            cwd = "${workspaceFolder}",
+            port = "${port}",
+            executable = {
+              command = 'node',
+              args = {
+                os.getenv('HOME') .. '/development/javascript/vscode-js-debug/out/src/vsDebugServer.js',
+                '${port}',
+              },
+            },
+          },
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = "Attach",
+            processId = require'dap.utils'.pick_process,
+            cwd = "${workspaceFolder}",
+          },
+        }
+      end
+
+      dap.adapters['pwa-node'] = {
+        type = 'server',
+        host = 'localhost',
+        port = '${port}',
+        executable = {
+          command = 'node',
+          args = {
+            os.getenv('HOME') .. '/development/javascript/vscode-js-debug/out/src/vsDebugServer.js',
+            '${port}',
+          }
+        },
+      }
     end,
   },
 })

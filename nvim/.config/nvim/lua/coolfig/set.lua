@@ -1,17 +1,20 @@
 -- general keymaps
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<C-f>", vim.cmd.Ex)
+vim.keymap.set("n", "<C-f>", vim.cmd.Ex)            -- Ctrl+F: open file tree
 
-vim.keymap.set("n", "U", vim.cmd.redo)
+vim.keymap.set("n", "<C-z>", vim.cmd.undo)          -- Ctrl+Z: undo
+vim.keymap.set("n", "<CS-z>", vim.cmd.redo)         -- Ctrl+Shift+Z: redo
+vim.keymap.set("n", "U", vim.cmd.redo)              -- U: redo
 
+vim.keymap.set("v", "$", "g_")                      -- do not select newline
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])  -- Space+Y: copy to clipboard
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "i", "v"}, "<C-s>", vim.cmd.w)
+vim.keymap.set({"n", "i", "v"}, "<C-s>", vim.cmd.w) -- Ctrl+S: save
 
 -- terminal
 vim.keymap.set("n", "<C-t>", "<cmd>split<CR> <Bar> <C-W>w <C-w>-<C-w>-<C-w>-<C-w>-<C-w>-<C-w>- <cmd>terminal<CR> <Bar> i")
