@@ -65,6 +65,14 @@ vim.opt.wrap = false -- disable line wrapping
 vim.opt.termguicolors = true
 vim.cmd.colorscheme("kanagawa") -- catppuccin colorscheme
 
+-- auto update on external edit
+vim.opt.autoread = true
+-- forces nvim to check for changes whenever the window is focused or moves
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  command = "if mode() != 'c' | checktime | endif",
+})
+
 -- path (for Windows)
 -- vim.g.netrw_cygwin = 0
 -- vim.g.netrw_scp_cmd = '"C:\\Windows\\System32\\OpenSSH\\scp.exe" -q'
