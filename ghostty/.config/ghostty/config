@@ -5,7 +5,10 @@ font-family = "JetBrains Mono Nerd Font"
 font-style = SemiBold
 font-size = 12.0
 font-synthetic-style = bold
-custom-shader = ./shaders/cursor_smear.glsl
+
+custom-shader = ./shaders/cursor_sweep.glsl
+custom-shader = ./shaders/ripple_cursor.glsl
+
 mouse-hide-while-typing = true
 
 palette = 0=#1d1f21
