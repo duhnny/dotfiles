@@ -23,6 +23,18 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- lsp
 vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "<leader>e", function()
+    vim.diagnostic.jump({
+        count=1,
+        severity=vim.diagnostic.severity.ERROR,
+    });
+end)
+vim.keymap.set("n", "<leader>w", function()
+    vim.diagnostic.jump({
+        count=1,
+        severity=vim.diagnostic.severity.WARN,
+    });
+end)
 
 -- indenting
 vim.opt.tabstop = 4
