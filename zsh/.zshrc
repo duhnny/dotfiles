@@ -45,4 +45,5 @@ alias dos2unix='sed -i "s/\r$//"'
 alias ls='lsd'
 alias grep='grep --color=auto'
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.yaml)"
-fastfetch
+fastfetch --logo "$HOME/.local/share/images/fastfetch/$(ls $HOME/.local/share/images/fastfetch | shuf -n 1)" --logo-type kitty-icat
+echo "" # skip one line so that the fastfetch output is not right above the prompt
