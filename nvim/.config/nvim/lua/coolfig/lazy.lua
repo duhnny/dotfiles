@@ -24,7 +24,7 @@ vim.g.maplocalleader = " "
 return require('lazy').setup({
   -- for vim telescope
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    'nvim-telescope/telescope.nvim',
     dependencies = { {'nvim-lua/plenary.nvim'} }
   },
 
@@ -208,7 +208,7 @@ return require('lazy').setup({
             executable = {
               command = 'node',
               args = {
-                os.getenv('HOME') .. '/development/javascript/vscode-js-debug/out/src/vsDebugServer.js',
+                os.getenv('HOME') .. '/development/javascript/vscode-js-debug/dist/src/vsDebugServer.js',
                 '${port}',
               },
             },
@@ -230,7 +230,7 @@ return require('lazy').setup({
         executable = {
           command = 'node',
           args = {
-            os.getenv('HOME') .. '/development/javascript/vscode-js-debug/out/src/vsDebugServer.js',
+            os.getenv('HOME') .. '/development/javascript/vscode-js-debug/dist/src/vsDebugServer.js',
             '${port}',
           }
         },
