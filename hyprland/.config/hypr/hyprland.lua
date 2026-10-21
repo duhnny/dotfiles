@@ -353,7 +353,7 @@ hl.config({
 -- See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
 hl.device({
     name = 'usb-optical-mouse-',
-    sensitivity = 1.0,
+    sensitivity = -0.05,
 });
 
 hl.device({
