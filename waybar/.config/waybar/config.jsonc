@@ -41,7 +41,7 @@
             "class<io.podman_desktop.PodmanDesktop>": "",
             "class<Postman>": "󰙨",
             "class<Google-chrome>": "",
-            "class<obsidian>": "",
+            "class<md.obsidian.Obsidian>": "",
             "class<gimp>": "",
             "class<com.obsproject.Studio>": "󰡂",
             "class<.*code-oss.*>": "",
