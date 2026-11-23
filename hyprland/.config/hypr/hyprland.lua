@@ -379,7 +379,7 @@ hl.bind(mainMod .. '+ SHIFT + F', hl.dsp.window.fullscreen({ action = 'toggle', 
 hl.bind(mainMod .. '+ P',         hl.dsp.window.pin({ action = 'toggle', })); -- dwindle
 hl.bind(mainMod .. '+ SHIFT + P', hl.dsp.window.pseudo({ action = 'toggle' })); -- dwindle
 hl.bind(mainMod .. '+ Z',         hl.dsp.exec_cmd(lockScreen));
-hl.bind(mainMod .. '+ SHIFT + Z', hl.dsp.exec_cmd(lockScreen .. ' & disown && sleep 3s && systemctl suspend'));
+hl.bind(mainMod .. '+ SHIFT + Z', hl.dsp.exec_cmd(lockScreen .. ' & disown && sleep 3s && playerctl -a pause; systemctl suspend'));
 hl.bind(mainMod .. '+ M',         hl.dsp.workspace.toggle_special('magic'));
 hl.bind(mainMod .. '+ SHIFT + M', hl.dsp.window.move({ workspace = 'special:magic', }));
 
