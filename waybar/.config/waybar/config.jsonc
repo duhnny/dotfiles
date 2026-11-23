@@ -162,7 +162,7 @@
     "custom/spotify": {
         "format": " {}",
         "max-length": 30,
-        "interval": 5, // Remove this if your script is endless and write in loop
+        "interval": 3, // Remove this if your script is endless and write in loop
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
         "exec-if": "pgrep spotify",
         "on-click": "playerctl -p spotify play-pause",
