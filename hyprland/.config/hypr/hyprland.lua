@@ -115,7 +115,7 @@ hl.config({
 
         -- https://wiki.hyprland.org/Configuring/Variables/#blur
         blur = {
-            -- variant = 'acrylic',
+            variant = 0,
             enabled = true,
             size = 6,
             passes = 3,
