@@ -415,16 +415,16 @@ hl.bind(mainMod .. '+ CTRL + k', hl.dsp.window.move({ direction = 'u', }));
 hl.bind(mainMod .. '+ CTRL + j', hl.dsp.window.move({ direction = 'd', }));
 
 -- Resize windows
-hl.bind(mainMod .. '+ SHIFT + left',  hl.dsp.window.resize({ x = -30, y = 0,   relative = true, }, { repeating = true, }));
-hl.bind(mainMod .. '+ SHIFT + right', hl.dsp.window.resize({ x = 30,  y = 0,   relative = true, }, { repeating = true, }));
-hl.bind(mainMod .. '+ SHIFT + up',    hl.dsp.window.resize({ x = 0,   y = -30, relative = true, }, { repeating = true, }));
-hl.bind(mainMod .. '+ SHIFT + down',  hl.dsp.window.resize({ x = 0,   y = 30,  relative = true, }, { repeating = true, }));
+hl.bind(mainMod .. '+ SHIFT + left',  hl.dsp.window.resize({ x = -30, y = 0,   relative = true, }), { repeating = true, });
+hl.bind(mainMod .. '+ SHIFT + right', hl.dsp.window.resize({ x = 30,  y = 0,   relative = true, }), { repeating = true, });
+hl.bind(mainMod .. '+ SHIFT + up',    hl.dsp.window.resize({ x = 0,   y = -30, relative = true, }), { repeating = true, });
+hl.bind(mainMod .. '+ SHIFT + down',  hl.dsp.window.resize({ x = 0,   y = 30,  relative = true, }), { repeating = true, });
 
 -- Resize windows
-hl.bind(mainMod .. '+ SHIFT + h', hl.dsp.window.resize({ x = -30,  y = 0,   relative = true, }, { repeating = true, }));
-hl.bind(mainMod .. '+ SHIFT + l', hl.dsp.window.resize({ x = 30,   y = 0,   relative = true, }, { repeating = true, }));
-hl.bind(mainMod .. '+ SHIFT + k', hl.dsp.window.resize({ x = 0,    y = -30, relative = true, }, { repeating = true, }));
-hl.bind(mainMod .. '+ SHIFT + j', hl.dsp.window.resize({ x = 0,    y = 30,  relative = true, }, { repeating = true, }));
+hl.bind(mainMod .. '+ SHIFT + h', hl.dsp.window.resize({ x = -30,  y = 0,   relative = true, }), { repeating = true, });
+hl.bind(mainMod .. '+ SHIFT + l', hl.dsp.window.resize({ x = 30,   y = 0,   relative = true, }), { repeating = true, });
+hl.bind(mainMod .. '+ SHIFT + k', hl.dsp.window.resize({ x = 0,    y = -30, relative = true, }), { repeating = true, });
+hl.bind(mainMod .. '+ SHIFT + j', hl.dsp.window.resize({ x = 0,    y = 30,  relative = true, }), { repeating = true, });
 
 -- Switch workspaces with mainMod + [0-9]
 hl.bind(mainMod .. '+ 1', hl.dsp.focus({ workspace = '1',  }));
