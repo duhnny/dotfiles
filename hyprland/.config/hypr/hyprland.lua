@@ -538,24 +538,9 @@ hl.window_rule({
 -- Blur rofi
 hl.layer_rule({
     match = {
-        class = 'rofi',
+        namespace = "rofi",
     },
 
     blur = true,
-});
-hl.layer_rule({
-    match = {
-        class = 'rofi',
-    },
-
     ignore_alpha = 0,
-});
-
--- Do not blur hyprshot
-hl.layer_rule({
-    match = {
-        class = 'hyprshot',
-    },
-
-    blur = false,
 });
