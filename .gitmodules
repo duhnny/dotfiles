@@ -1,0 +1,3 @@
+[submodule "quickshell/.config/quickshell"]
+	path = quickshell/.config/quickshell
+	url = git@github.com:duhnny/my-waybar-on-quickshell.git
