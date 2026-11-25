@@ -35,7 +35,7 @@ hl.on('hyprland.start', function()
     hl.exec_cmd('swaync'); -- notification daemon
     -- hl.exec_cmd('mpvpaper -o "no-audio --loop" ALL /home/daniel/.local/share/images/frieren-campfire.gif'); -- animated wallpaper
     hl.exec_cmd('hyprpaper'); -- wallpaper
-    hl.exec_cmd('waybar'); -- task bar
+    hl.exec_cmd('qs'); -- task bar
     hl.exec_cmd('hyprpm reload -n'); -- reload plugins on startup
 
     -- Start GNOME Keyring daemon and export its variables
@@ -372,7 +372,7 @@ local mainMod = 'SUPER' -- Sets "Windows" key as main modifier
 -- Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 hl.bind(mainMod .. '+ T',         hl.dsp.exec_cmd(terminal));
 hl.bind(mainMod .. '+ B',         hl.dsp.exec_cmd(browser));
-hl.bind(mainMod .. '+ W',         hl.dsp.exec_cmd('~/.config/hypr/scripts/toggle_waybar.sh'));
+hl.bind(mainMod .. '+ W',         hl.dsp.exec_cmd('~/.config/hypr/scripts/toggle_quickshell.sh'));
 hl.bind(mainMod .. '+ C',         hl.dsp.window.close());
 hl.bind(mainMod .. '+ F',         hl.dsp.window.float({ action = 'toggle', }));
 hl.bind(mainMod .. '+ SHIFT + F', hl.dsp.window.fullscreen({ action = 'toggle', }));
@@ -539,6 +539,15 @@ hl.window_rule({
 hl.layer_rule({
     match = {
         namespace = "rofi",
+    },
+
+    blur = true,
+    ignore_alpha = 0,
+});
+-- Blur minibar
+hl.layer_rule({
+    match = {
+        namespace = "minibar",
     },
 
     blur = true,
